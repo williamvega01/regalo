@@ -23,6 +23,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="icon" href="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9D%A4%EF%B8%8F%3C/text%3E%3C/svg%3E">
     <style>
@@ -97,12 +98,12 @@
             text-align: center;
             z-index: 150;
             text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0, 0 0 40px #ff0;
-            white-space: nowrap; /* <- esto evita que se rompa en varias líneas */
+           
         }
         .love-subtitle {
             position: absolute;
-            top: 500px; /* separado del título */
-            left: 20%;
+            top: 650px; /* separado del título */
+            left: 50%;
             transform: translateX(-50%);
             color: #ffff00;
             font-family: 'Sour Gummy', cursive;
@@ -464,14 +465,24 @@
         /* Respect users who prefer reduced motion */
         @media (prefers-reduced-motion: reduce) {
             * { animation-duration: 0s !important; transition-duration: 0s !important; }
-            #falling-flower-container, #particle-container { display: none !important; }
+            #falling-flower-container, #particle-container, #effectsCanvas { display: none !important; }
+        }
+
+        /* Canvas-based effects layer (covers viewport, pointer-events none) */
+        #effectsCanvas {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 5;
         }
      </style>
  </head>
  <body class="">
     
-    <div id="falling-flower-container"><div class="falling-flower-wrapper" style="left: 56.282vw; animation-duration: 14.6101s;"><div class="falling-flower" style="animation-duration: 3.60088s; width: 22.0639px; height: 22.0639px; filter: blur(0.379211px); opacity: 0.780074;"></div></div><div class="falling-flower-wrapper" style="left: 85.6934vw; animation-duration: 12.4999s;"><div class="falling-flower" style="animation-duration: 4.2459s; width: 31.4944px; height: 31.4944px; filter: blur(0.204296px); opacity: 0.74683;"></div></div><div class="falling-flower-wrapper" style="left: 26.6368vw; animation-duration: 12.383s;"><div class="falling-flower" style="animation-duration: 3.61242s; width: 13.7513px; height: 13.7513px; filter: blur(0.942157px); opacity: 0.79858;"></div></div><div class="falling-flower-wrapper" style="left: 84.3703vw; animation-duration: 11.4697s;"><div class="falling-flower" style="animation-duration: 3.51374s; width: 21.0224px; height: 21.0224px; filter: blur(1.79331px); opacity: 0.845948;"></div></div><div class="falling-flower-wrapper" style="left: 49.052vw; animation-duration: 14.1041s;"><div class="falling-flower" style="animation-duration: 4.30068s; width: 16.6708px; height: 16.6708px; filter: blur(0.101521px); opacity: 0.887987;"></div></div><div class="falling-flower-wrapper" style="left: 83.1304vw; animation-duration: 11.4629s;"><div class="falling-flower" style="animation-duration: 4.25256s; width: 14.0953px; height: 14.0953px; filter: blur(0.439497px); opacity: 0.882097;"></div></div><div class="falling-flower-wrapper" style="left: 28.073vw; animation-duration: 12.477s;"><div class="falling-flower" style="animation-duration: 3.22008s; width: 12.1602px; height: 12.1602px; filter: blur(1.35549px); opacity: 0.735205;"></div></div><div class="falling-flower-wrapper" style="left: 15.9004vw; animation-duration: 11.0362s;"><div class="falling-flower" style="animation-duration: 4.2932s; width: 29.6459px; height: 29.6459px; filter: blur(1.85711px); opacity: 0.755617;"></div></div><div class="falling-flower-wrapper" style="left: 2.59277vw; animation-duration: 14.2808s;"><div class="falling-flower" style="animation-duration: 3.1681s; width: 27.6983px; height: 27.6983px; filter: blur(0.708565px); opacity: 0.831367;"></div></div><div class="falling-flower-wrapper" style="left: 3.83664vw; animation-duration: 9.62451s;"><div class="falling-flower" style="animation-duration: 4.31306s; width: 21.1166px; height: 21.1166px; filter: blur(0.894439px); opacity: 0.903513;"></div></div><div class="falling-flower-wrapper" style="left: 57.0967vw; animation-duration: 9.6479s;"><div class="falling-flower" style="animation-duration: 4.6353s; width: 36.376px; height: 36.376px; filter: blur(1.24005px); opacity: 0.860889;"></div></div><div class="falling-flower-wrapper" style="left: 78.4557vw; animation-duration: 11.1841s;"><div class="falling-flower" style="animation-duration: 3.19825s; width: 14.3549px; height: 14.3549px; filter: blur(1.17262px); opacity: 0.702965;"></div></div><div class="falling-flower-wrapper" style="left: 25.8331vw; animation-duration: 9.76226s;"><div class="falling-flower" style="animation-duration: 3.07076s; width: 35.4977px; height: 35.4977px; filter: blur(1.30601px); opacity: 0.807725;"></div></div><div class="falling-flower-wrapper" style="left: 34.5303vw; animation-duration: 10.9512s;"><div class="falling-flower" style="animation-duration: 3.37477s; width: 28.3164px; height: 28.3164px; filter: blur(1.48916px); opacity: 0.817073;"></div></div><div class="falling-flower-wrapper" style="left: 8.65187vw; animation-duration: 13.1861s;"><div class="falling-flower" style="animation-duration: 4.80133s; width: 33.5321px; height: 33.5321px; filter: blur(1.04856px); opacity: 0.747494;"></div></div><div class="falling-flower-wrapper" style="left: 20.0483vw; animation-duration: 10.6061s;"><div class="falling-flower" style="animation-duration: 4.76199s; width: 33.6952px; height: 33.6952px; filter: blur(0.590915px); opacity: 0.954865;"></div></div><div class="falling-flower-wrapper" style="left: 50.5159vw; animation-duration: 8.01497s;"><div class="falling-flower" style="animation-duration: 3.69819s; width: 37.9895px; height: 37.9895px; filter: blur(0.758238px); opacity: 0.658321;"></div></div><div class="falling-flower-wrapper" style="left: 13.9967vw; animation-duration: 10.274s;"><div class="falling-flower" style="animation-duration: 4.10971s; width: 10.3037px; height: 10.3037px; filter: blur(0.816718px); opacity: 0.924673;"></div></div><div class="falling-flower-wrapper" style="left: 3.47915vw; animation-duration: 13.3859s;"><div class="falling-flower" style="animation-duration: 4.69449s; width: 16.8987px; height: 16.8987px; filter: blur(0.870392px); opacity: 0.931282;"></div></div><div class="falling-flower-wrapper" style="left: 52.5469vw; animation-duration: 9.96692s;"><div class="falling-flower" style="animation-duration: 3.02357s; width: 28.4518px; height: 28.4518px; filter: blur(1.81481px); opacity: 0.644619;"></div></div><div class="falling-flower-wrapper" style="left: 1.81285vw; animation-duration: 11.9676s;"><div class="falling-flower" style="animation-duration: 4.3846s; width: 20.6635px; height: 20.6635px; filter: blur(1.55793px); opacity: 0.97138;"></div></div><div class="falling-flower-wrapper" style="left: 17.3682vw; animation-duration: 10.9014s;"><div class="falling-flower" style="animation-duration: 3.35162s; width: 39.2609px; height: 39.2609px; filter: blur(1.62213px); opacity: 0.527345;"></div></div><div class="falling-flower-wrapper" style="left: 54.7525vw; animation-duration: 9.29925s;"><div class="falling-flower" style="animation-duration: 3.49025s; width: 33.5708px; height: 33.5708px; filter: blur(0.571891px); opacity: 0.927286;"></div></div><div class="falling-flower-wrapper" style="left: 77.1402vw; animation-duration: 7.77391s;"><div class="falling-flower" style="animation-duration: 4.54671s; width: 12.3732px; height: 12.3732px; filter: blur(0.232067px); opacity: 0.930387;"></div></div><div class="falling-flower-wrapper" style="left: 18.0914vw; animation-duration: 10.5349s;"><div class="falling-flower" style="animation-duration: 4.35437s; width: 22.7382px; height: 22.7382px; filter: blur(1.97769px); opacity: 0.657875;"></div></div><div class="falling-flower-wrapper" style="left: 1.09089vw; animation-duration: 13.9053s;"><div class="falling-flower" style="animation-duration: 3.002s; width: 15.0411px; height: 15.0411px; filter: blur(1.84761px); opacity: 0.600649;"></div></div><div class="falling-flower-wrapper" style="left: 42.808vw; animation-duration: 13.8721s;"><div class="falling-flower" style="animation-duration: 3.64012s; width: 18.5046px; height: 18.5046px; filter: blur(1.50294px); opacity: 0.782622;"></div></div><div class="falling-flower-wrapper" style="left: 79.6588vw; animation-duration: 14.5578s;"><div class="falling-flower" style="animation-duration: 4.36146s; width: 22.6465px; height: 22.6465px; filter: blur(1.96948px); opacity: 0.765019;"></div></div><div class="falling-flower-wrapper" style="left: 61.501vw; animation-duration: 12.7628s;"><div class="falling-flower" style="animation-duration: 4.89602s; width: 37.5189px; height: 37.5189px; filter: blur(0.657506px); opacity: 0.94697;"></div></div><div class="falling-flower-wrapper" style="left: 83.1508vw; animation-duration: 9.88968s;"><div class="falling-flower" style="animation-duration: 3.57143s; width: 32.1774px; height: 32.1774px; filter: blur(1.39315px); opacity: 0.67469;"></div></div><div class="falling-flower-wrapper" style="left: 27.941vw; animation-duration: 11.5444s;"><div class="falling-flower" style="animation-duration: 4.16826s; width: 38.4111px; height: 38.4111px; filter: blur(1.61667px); opacity: 0.861522;"></div></div><div class="falling-flower-wrapper" style="left: 37.7577vw; animation-duration: 10.7596s;"><div class="falling-flower" style="animation-duration: 3.57467s; width: 25.7676px; height: 25.7676px; filter: blur(0.681065px); opacity: 0.626202;"></div></div><div class="falling-flower-wrapper" style="left: 31.3327vw; animation-duration: 7.11902s;"><div class="falling-flower" style="animation-duration: 3.65179s; width: 38.7924px; height: 38.7924px; filter: blur(1.27005px); opacity: 0.682387;"></div></div><div class="falling-flower-wrapper" style="left: 20.6771vw; animation-duration: 9.47771s;"><div class="falling-flower" style="animation-duration: 4.10589s; width: 33.6423px; height: 33.6423px; filter: blur(0.257346px); opacity: 0.918751;"></div></div><div class="falling-flower-wrapper" style="left: 86.1859vw; animation-duration: 12.6406s;"><div class="falling-flower" style="animation-duration: 3.03196s; width: 38.0876px; height: 38.0876px; filter: blur(1.07092px); opacity: 0.880336;"></div></div><div class="falling-flower-wrapper" style="left: 52.5575vw; animation-duration: 8.88802s;"><div class="falling-flower" style="animation-duration: 3.39452s; width: 22.4676px; height: 22.4676px; filter: blur(0.582726px); opacity: 0.662265;"></div></div><div class="falling-flower-wrapper" style="left: 69.1447vw; animation-duration: 14.4713s;"><div class="falling-flower" style="animation-duration: 4.19262s; width: 24.1343px; height: 24.1343px; filter: blur(1.78495px); opacity: 0.619094;"></div></div><div class="falling-flower-wrapper" style="left: 23.7982vw; animation-duration: 14.654s;"><div class="falling-flower" style="animation-duration: 3.55003s; width: 33.6022px; height: 33.6022px; filter: blur(0.103694px); opacity: 0.709817;"></div></div><div class="falling-flower-wrapper" style="left: 36.5687vw; animation-duration: 13.5906s;"><div class="falling-flower" style="animation-duration: 3.81735s; width: 36.4983px; height: 36.4983px; filter: blur(1.5861px); opacity: 0.831879;"></div></div><div class="falling-flower-wrapper" style="left: 81.217vw; animation-duration: 14.0631s;"><div class="falling-flower" style="animation-duration: 4.4469s; width: 17.5215px; height: 17.5215px; filter: blur(1.95537px); opacity: 0.836689;"></div></div><div class="falling-flower-wrapper" style="left: 85.3804vw; animation-duration: 9.73274s;"><div class="falling-flower" style="animation-duration: 3.99393s; width: 33.1313px; height: 33.1313px; filter: blur(1.07341px); opacity: 0.990543;"></div></div><div class="falling-flower-wrapper" style="left: 83.0123vw; animation-duration: 14.8302s;"><div class="falling-flower" style="animation-duration: 4.04422s; width: 37.5904px; height: 37.5904px; filter: blur(0.189754px); opacity: 0.736608;"></div></div></div>
-    <div id="particle-container"><div class="particle" style="width: 7.54193px; height: 7.54193px; left: 617.972px; top: 120.235px; animation-delay: 5.12321s;"></div><div class="particle" style="width: 6.07448px; height: 6.07448px; left: 760.974px; top: 88.0334px; animation-delay: 5.9837s;"></div><div class="particle" style="width: 6.15207px; height: 6.15207px; left: 640.831px; top: 362.558px; animation-delay: 5.66219s;"></div><div class="particle" style="width: 3.16973px; height: 3.16973px; left: 304.731px; top: 358.985px; animation-delay: 5.46424s;"></div><div class="particle" style="width: 4.25508px; height: 4.25508px; left: 682.273px; top: 261.791px; animation-delay: 5.10569s;"></div><div class="particle" style="width: 2.10751px; height: 2.10751px; left: 534.524px; top: 69.7172px; animation-delay: 5.49291s;"></div><div class="particle" style="width: 3.15529px; height: 3.15529px; left: 1085.98px; top: 568.428px; animation-delay: 4.96248s;"></div><div class="particle" style="width: 6.13567px; height: 6.13567px; left: 820.34px; top: 318.506px; animation-delay: 4.00787s;"></div><div class="particle" style="width: 6.14975px; height: 6.14975px; left: 736.479px; top: 255.839px; animation-delay: 4.1058s;"></div><div class="particle" style="width: 7.00964px; height: 7.00964px; left: 739.58px; top: 164.286px; animation-delay: 5.85103s;"></div><div class="particle" style="width: 5.13285px; height: 5.13285px; left: 8.88906px; top: 314.902px; animation-delay: 5.53312s;"></div><div class="particle" style="width: 3.36119px; height: 3.36119px; left: 616.51px; top: 293.187px; animation-delay: 5.18991s;"></div><div class="particle" style="width: 3.8944px; height: 3.8944px; left: 764.48px; top: 148.807px; animation-delay: 5.54652s;"></div><div class="particle" style="width: 5.01843px; height: 5.01843px; left: 491.297px; top: 602.543px; animation-delay: 3.81238s;"></div><div class="particle" style="width: 4.83568px; height: 4.83568px; left: 761.459px; top: 63.2921px; animation-delay: 4.44338s;"></div><div class="particle" style="width: 2.79005px; height: 2.79005px; left: 1111.52px; top: 243.376px; animation-delay: 3.11099s;"></div><div class="particle" style="width: 4.86009px; height: 4.86009px; left: 579.42px; top: 35.0434px; animation-delay: 5.00044s;"></div><div class="particle" style="width: 6.98327px; height: 6.98327px; left: 604.29px; top: 157.925px; animation-delay: 2.91191s;"></div><div class="particle" style="width: 2.7803px; height: 2.7803px; left: 440.723px; top: 21.5463px; animation-delay: 5.15472s;"></div><div class="particle" style="width: 2.13326px; height: 2.13326px; left: 572.801px; top: 99.9568px; animation-delay: 3.82437s;"></div><div class="particle" style="width: 6.78448px; height: 6.78448px; left: 756.576px; top: 152.437px; animation-delay: 5.42357s;"></div><div class="particle" style="width: 7.87513px; height: 7.87513px; left: 832.618px; top: 322.805px; animation-delay: 4.52159s;"></div><div class="particle" style="width: 6.92516px; height: 6.92516px; left: 716.049px; top: 92.893px; animation-delay: 5.11886s;"></div><div class="particle" style="width: 2.01513px; height: 2.01513px; left: 615.494px; top: 331.388px; animation-delay: 3.90248s;"></div><div class="particle" style="width: 2.24142px; height: 2.24142px; left: 141.667px; top: 219.841px; animation-delay: 2.26054s;"></div><div class="particle" style="width: 7.09941px; height: 7.09941px; left: 538.79px; top: 345.811px; animation-delay: 2.50189s;"></div><div class="particle" style="width: 4.72904px; height: 4.72904px; left: 534.968px; top: 120.048px; animation-delay: 5.7344s;"></div><div class="particle" style="width: 5.28106px; height: 5.28106px; left: 138.489px; top: 575.534px; animation-delay: 3.39091s;"></div><div class="particle" style="width: 4.92521px; height: 4.92521px; left: 682.912px; top: 329.849px; animation-delay: 5.24656s;"></div><div class="particle" style="width: 7.25597px; height: 7.25597px; left: 853.821px; top: 68.6733px; animation-delay: 2.27435s;"></div><div class="particle" style="width: 4.56899px; height: 4.56899px; left: 725.138px; top: 291.649px; animation-delay: 3.38586s;"></div><div class="particle" style="width: 6.46518px; height: 6.46518px; left: 1336.93px; top: 429.55px; animation-delay: 1.63507s;"></div><div class="particle" style="width: 5.67183px; height: 5.67183px; left: 609.324px; top: 316.264px; animation-delay: 3.19066s;"></div><div class="particle" style="width: 5.46765px; height: 5.46765px; left: 550.843px; top: 56.0663px; animation-delay: 3.69399s;"></div><div class="particle" style="width: 4.74436px; height: 4.74436px; left: 564.423px; top: 158.136px; animation-delay: 5.54673s;"></div><div class="particle" style="width: 3.12131px; height: 3.12131px; left: 831.332px; top: 504.952px; animation-delay: 4.44516s;"></div><div class="particle" style="width: 7.02919px; height: 7.02919px; left: 600.277px; top: 126.423px; animation-delay: 4.9631s;"></div><div class="particle" style="width: 6.5301px; height: 6.5301px; left: 487.063px; top: 225.425px; animation-delay: 5.00188s;"></div><div class="particle" style="width: 2.01683px; height: 2.01683px; left: 491.352px; top: 307.439px; animation-delay: 2.03944s;"></div><div class="particle" style="width: 7.04268px; height: 7.04268px; left: 638.04px; top: 525.041px; animation-delay: 2.07691s;"></div><div class="particle" style="width: 4.68853px; height: 4.68853px; left: 714.807px; top: 138.96px; animation-delay: 3.85144s;"></div><div class="particle" style="width: 7.84953px; height: 7.84953px; left: 563.432px; top: 395.081px; animation-delay: 5.64953s;"></div><div class="particle" style="width: 3.6115px; height: 3.6115px; left: 702.521px; top: 281.139px; animation-delay: 5.64133s;"></div><div class="particle" style="width: 7.83894px; height: 7.83894px; left: 659.572px; top: 235.459px; animation-delay: 5.33241s;"></div><div class="particle" style="width: 6.89807px; height: 6.89807px; left: 791.349px; top: 70.7859px; animation-delay: 2.14587s;"></div><div class="particle" style="width: 2.09586px; height: 2.09586px; left: 745.952px; top: 124.631px; animation-delay: 4.3215s;"></div><div class="particle" style="width: 7.10993px; height: 7.10993px; left: 1145.83px; top: 161.963px; animation-delay: 1.05032s;"></div><div class="particle" style="width: 7.81659px; height: 7.81659px; left: 516.502px; top: 212.97px; animation-delay: 1.40382s;"></div><div class="particle" style="width: 7.61207px; height: 7.61207px; left: 385.971px; top: 412.614px; animation-delay: 4.56276s;"></div><div class="particle" style="width: 2.57984px; height: 2.57984px; left: 757.858px; top: 159.05px; animation-delay: 4.34693s;"></div><div class="particle" style="width: 2.73769px; height: 2.73769px; left: 203.575px; top: 498.136px; animation-delay: 5.83784s;"></div><div class="particle" style="width: 4.6288px; height: 4.6288px; left: 879.305px; top: 132.417px; animation-delay: 4.21473s;"></div><div class="particle" style="width: 4.78299px; height: 4.78299px; left: 729.115px; top: 470.889px; animation-delay: 5.39677s;"></div><div class="particle" style="width: 4.98806px; height: 4.98806px; left: 875.604px; top: 357.543px; animation-delay: 2.45126s;"></div><div class="particle" style="width: 7.9972px; height: 7.9972px; left: 931.63px; top: 400.613px; animation-delay: 1.46587s;"></div><div class="particle" style="width: 6.55544px; height: 6.55544px; left: 503.833px; top: 203.581px; animation-delay: 3.35353s;"></div><div class="particle" style="width: 6.67865px; height: 6.67865px; left: 532.558px; top: 63.737px; animation-delay: 2.18536s;"></div><div class="particle" style="width: 2.92149px; height: 2.92149px; left: 860.152px; top: 208.115px; animation-delay: 4.45784s;"></div><div class="particle" style="width: 3.30681px; height: 3.30681px; left: 475.415px; top: 549.609px; animation-delay: 1.3367s;"></div><div class="particle" style="width: 2.61557px; height: 2.61557px; left: 742.19px; top: 326.773px; animation-delay: 5.05733s;"></div><div class="particle" style="width: 7.52868px; height: 7.52868px; left: 1202.59px; top: 215.384px; animation-delay: 2.37908s;"></div><div class="particle" style="width: 6.78657px; height: 6.78657px; left: 565.64px; top: 186.353px; animation-delay: 3.60397s;"></div><div class="particle" style="width: 3.44533px; height: 3.44533px; left: 1344.75px; top: 262.219px; animation-delay: 2.39851s;"></div><div class="particle" style="width: 3.0864px; height: 3.0864px; left: 693.082px; top: 85.6352px; animation-delay: 5.69622s;"></div><div class="particle" style="width: 5.85805px; height: 5.85805px; left: 357.453px; top: 560.903px; animation-delay: 3.71467s;"></div><div class="particle" style="width: 5.11882px; height: 5.11882px; left: 853.261px; top: 182.934px; animation-delay: 1.92113s;"></div><div class="particle" style="width: 2.9388px; height: 2.9388px; left: 401.124px; top: 514.622px; animation-delay: 5.51359s;"></div><div class="particle" style="width: 5.75177px; height: 5.75177px; left: 588.029px; top: 63.4714px; animation-delay: 1.24804s;"></div><div class="particle" style="width: 3.51068px; height: 3.51068px; left: 1349.09px; top: 462.025px; animation-delay: 0.250968s;"></div><div class="particle" style="width: 7.18291px; height: 7.18291px; left: 713.801px; top: 121.415px; animation-delay: 4.23812s;"></div><div class="particle" style="width: 2.63985px; height: 2.63985px; left: 1040px; top: 213.838px; animation-delay: 0.415176s;"></div><div class="particle" style="width: 3.0887px; height: 3.0887px; left: 587.73px; top: 185.053px; animation-delay: 2.88378s;"></div><div class="particle" style="width: 4.51616px; height: 4.51616px; left: 145.881px; top: 265.909px; animation-delay: 0.551439s;"></div><div class="particle" style="width: 4.42061px; height: 4.42061px; left: 829.741px; top: 104.214px; animation-delay: 0.705549s;"></div><div class="particle" style="width: 3.29648px; height: 3.29648px; left: 1250.12px; top: 47.3642px; animation-delay: 1.16842s;"></div><div class="particle" style="width: 5.87986px; height: 5.87986px; left: 681.815px; top: 359.112px; animation-delay: 4.08322s;"></div><div class="particle" style="width: 6.44317px; height: 6.44317px; left: 845.249px; top: 322.799px; animation-delay: 3.33366s;"></div><div class="particle" style="width: 6.44896px; height: 6.44896px; left: 780.434px; top: 287.684px; animation-delay: 0.900564s;"></div><div class="particle" style="width: 3.19236px; height: 3.19236px; left: 11.791px; top: 32.3313px; animation-delay: 5.01428s;"></div><div class="particle" style="width: 4.90083px; height: 4.90083px; left: 740.094px; top: 330.151px; animation-delay: 5.83746s;"></div><div class="particle" style="width: 4.01612px; height: 4.01612px; left: 193.303px; top: 137.133px; animation-delay: 0.731619s;"></div><div class="particle" style="width: 6.00159px; height: 6.00159px; left: 553.632px; top: 330.893px; animation-delay: 1.48485s;"></div><div class="particle" style="width: 5.6008px; height: 5.6008px; left: 988.743px; top: 512.391px; animation-delay: 4.27735s;"></div><div class="particle" style="width: 5.25282px; height: 5.25282px; left: 579.53px; top: 246.73px; animation-delay: 1.24773s;"></div><div class="particle" style="width: 3.54807px; height: 3.54807px; left: 890.45px; top: 358.427px; animation-delay: 4.6908s;"></div><div class="particle" style="width: 7.87376px; height: 7.87376px; left: 879.182px; top: 276.244px; animation-delay: 3.62752s;"></div><div class="particle" style="width: 5.20536px; height: 5.20536px; left: 1215.64px; top: 443.486px; animation-delay: 1.58524s;"></div><div class="particle" style="width: 4.18459px; height: 4.18459px; left: 850.457px; top: 163.257px; animation-delay: 1.36203s;"></div><div class="particle" style="width: 6.28034px; height: 6.28034px; left: 133.582px; top: 376.803px; animation-delay: 3.73457s;"></div><div class="particle" style="width: 7.27187px; height: 7.27187px; left: 601.103px; top: 116.687px; animation-delay: 4.39465s;"></div><div class="particle" style="width: 5.36725px; height: 5.36725px; left: 1327.77px; top: 555.387px; animation-delay: 5.09754s;"></div><div class="particle" style="width: 5.2039px; height: 5.2039px; left: 710.74px; top: 82.3505px; animation-delay: 0.112993s;"></div><div class="particle" style="width: 2.84505px; height: 2.84505px; left: 782.691px; top: 110.402px; animation-delay: 1.82179s;"></div><div class="particle" style="width: 5.56973px; height: 5.56973px; left: 604.394px; top: 149.644px; animation-delay: 2.2146s;"></div><div class="particle" style="width: 6.91168px; height: 6.91168px; left: 701.251px; top: 480.545px; animation-delay: 2.66402s;"></div><div class="particle" style="width: 7.86859px; height: 7.86859px; left: 539.353px; top: 215.467px; animation-delay: 0.217407s;"></div><div class="particle" style="width: 6.02248px; height: 6.02248px; left: 1062.6px; top: 70.1206px; animation-delay: 1.94988s;"></div><div class="particle" style="width: 2.92273px; height: 2.92273px; left: 778.598px; top: 293.477px; animation-delay: 3.36673s;"></div><div class="particle" style="width: 4.92697px; height: 4.92697px; left: 1156.05px; top: 409.868px; animation-delay: 4.26568s;"></div><div class="particle" style="width: 3.06991px; height: 3.06991px; left: 827.669px; top: 319.469px; animation-delay: 2.02489s;"></div><div class="particle" style="width: 6.66315px; height: 6.66315px; left: 434.708px; top: 184.793px; animation-delay: 0.976964s;"></div><div class="particle" style="width: 6.36987px; height: 6.36987px; left: 589.7px; top: 163.263px; animation-delay: 5.01869s;"></div><div class="particle" style="width: 2.73604px; height: 2.73604px; left: 820.362px; top: 352.429px; animation-delay: 1.55668s;"></div><div class="particle" style="width: 7.58927px; height: 7.58927px; left: 640.795px; top: 203.392px; animation-delay: 4.70971s;"></div><div class="particle" style="width: 7.20892px; height: 7.20892px; left: 319.075px; top: 560.808px; animation-delay: 1.06502s;"></div><div class="particle" style="width: 5.94791px; height: 5.94791px; left: 532.75px; top: 194.9px; animation-delay: 1.38585s;"></div><div class="particle" style="width: 7.26842px; height: 7.26842px; left: 1249.2px; top: 416.353px; animation-delay: 1.908s;"></div><div class="particle" style="width: 5.3145px; height: 5.3145px; left: 515.144px; top: 63.0765px; animation-delay: 1.98103s;"></div><div class="particle" style="width: 3.13136px; height: 3.13136px; left: 452.534px; top: 503.332px; animation-delay: 3.94356s;"></div><div class="particle" style="width: 2.90293px; height: 2.90293px; left: 848.622px; top: 250.306px; animation-delay: 0.954375s;"></div><div class="particle" style="width: 6.48503px; height: 6.48503px; left: 330.585px; top: 24.2742px; animation-delay: 4.62957s;"></div><div class="particle" style="width: 7.0679px; height: 7.0679px; left: 725.815px; top: 280.798px; animation-delay: 2.51387s;"></div><div class="particle" style="width: 7.68918px; height: 7.68918px; left: 1076.26px; top: 261.379px; animation-delay: 4.20049s;"></div><div class="particle" style="width: 4.8517px; height: 4.8517px; left: 551.315px; top: 287.825px; animation-delay: 0.218623s;"></div><div class="particle" style="width: 6.06078px; height: 6.06078px; left: 377.301px; top: 86.0503px; animation-delay: 4.36473s;"></div><div class="particle" style="width: 6.4397px; height: 6.4397px; left: 608.225px; top: 220.531px; animation-delay: 0.671097s;"></div><div class="particle" style="width: 6.33217px; height: 6.33217px; left: 294.706px; top: 607.819px; animation-delay: 1.44747s;"></div><div class="particle" style="width: 2.85446px; height: 2.85446px; left: 854.813px; top: 220.736px; animation-delay: 5.32242s;"></div><div class="particle" style="width: 3.07113px; height: 3.07113px; left: 1003.66px; top: 623.256px; animation-delay: 0.341582s;"></div><div class="particle" style="width: 6.46729px; height: 6.46729px; left: 698.635px; top: 293.223px; animation-delay: 3.14173s;"></div><div class="particle" style="width: 5.75461px; height: 5.75461px; left: 1162.67px; top: 84.9891px; animation-delay: 3.45299s;"></div><div class="particle" style="width: 4.89851px; height: 4.89851px; left: 747.763px; top: 110.77px; animation-delay: 2.18768s;"></div><div class="particle" style="width: 6.39081px; height: 6.39081px; left: 242.634px; top: 143.958px; animation-delay: 4.75514s;"></div><div class="particle" style="width: 4.75434px; height: 4.75434px; left: 771.946px; top: 235.46px; animation-delay: 5.06273s;"></div><div class="particle" style="width: 3.76915px; height: 3.76915px; left: 689.826px; top: 595.411px; animation-delay: 3.15963s;"></div><div class="particle" style="width: 6.91644px; height: 6.91644px; left: 594.137px; top: 109.435px; animation-delay: 4.5649s;"></div><div class="particle" style="width: 4.52786px; height: 4.52786px; left: 962.693px; top: 319.884px; animation-delay: 0.55172s;"></div><div class="particle" style="width: 5.98108px; height: 5.98108px; left: 560.144px; top: 238.636px; animation-delay: 4.79071s;"></div><div class="particle" style="width: 7.33438px; height: 7.33438px; left: 948.804px; top: 35.1772px; animation-delay: 5.61956s;"></div><div class="particle" style="width: 2.90348px; height: 2.90348px; left: 707.98px; top: 73.3249px; animation-delay: 1.91747s;"></div><div class="particle" style="width: 4.73798px; height: 4.73798px; left: 8.01674px; top: 596.8px; animation-delay: 5.84659s;"></div><div class="particle" style="width: 3.27288px; height: 3.27288px; left: 287.786px; top: 227.488px; animation-delay: 3.60631s;"></div><div class="particle" style="width: 6.90707px; height: 6.90707px; left: 624.007px; top: 624.762px; animation-delay: 4.76162s;"></div><div class="particle" style="width: 6.70886px; height: 6.70886px; left: 363.845px; top: 241.467px; animation-delay: 3.2168s;"></div><div class="particle" style="width: 3.98742px; height: 3.98742px; left: 496.175px; top: 166.279px; animation-delay: 0.603494s;"></div><div class="particle" style="width: 7.19207px; height: 7.19207px; left: 315.819px; top: 264.768px; animation-delay: 1.6112s;"></div><div class="particle" style="width: 6.4383px; height: 6.4383px; left: 684.334px; top: 443.223px; animation-delay: 3.02961s;"></div><div class="particle" style="width: 2.80091px; height: 2.80091px; left: 392.71px; top: 171.762px; animation-delay: 1.81968s;"></div></div>
+    <!-- Reemplazado: muchos elementos DOM de partículas/flores -> canvas único -->
+    <canvas id="effectsCanvas" aria-hidden="true"></canvas>
     <h1 class="love-title">Estas flores son para ti amor🌻</h1>
     <!-- Animaciones -->
     <div id="falling-flower-container"></div>
@@ -616,6 +627,157 @@
                         document.documentElement.classList.add('reduced-motion');
                     }
                 } catch (e) {}
+            })();
+        </script>
+
+        <script>
+            // Canvas-based particle & falling-flower effect
+            (function(){
+                const canvas = document.getElementById('effectsCanvas');
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                let w = 0, h = 0, dpr = Math.max(1, window.devicePixelRatio || 1);
+                let particles = [];
+                let flowers = [];
+                const maxParticles = 80; // small floating particles
+                const maxFlowers = 28; // falling flowers
+                const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                function resize(){
+                    w = canvas.clientWidth || window.innerWidth;
+                    h = canvas.clientHeight || window.innerHeight;
+                    canvas.width = Math.round(w * dpr);
+                    canvas.height = Math.round(h * dpr);
+                    ctx.setTransform(dpr,0,0,dpr,0,0);
+                }
+
+                function rand(min,max){ return Math.random()*(max-min)+min }
+
+                function makeParticles(){
+                    particles = [];
+                    for(let i=0;i<maxParticles;i++){
+                        particles.push({
+                            x: rand(0,w),
+                            y: rand(0,h),
+                            r: rand(0.8,3.5),
+                            vx: rand(-0.15,0.15),
+                            vy: rand(-0.02,0.12),
+                            alpha: rand(0.25,0.95),
+                            hue: rand(40,60)
+                        });
+                    }
+                }
+
+                function makeFlowers(){
+                    flowers = [];
+                    for(let i=0;i<maxFlowers;i++){
+                        flowers.push({
+                            x: rand(0,w),
+                            y: rand(-h, -10),
+                            size: rand(8,40),
+                            vy: rand(0.3,1.2),
+                            vx: rand(-0.6,0.6),
+                            rot: rand(0,Math.PI*2),
+                            grow: rand(0.02,0.08),
+                            alpha: rand(0.6,1)
+                        });
+                    }
+                }
+
+                function drawParticle(p){
+                    ctx.save();
+                    ctx.globalAlpha = p.alpha;
+                    const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r*2);
+                    g.addColorStop(0, 'rgba(255,235,59,0.95)');
+                    g.addColorStop(0.6, 'rgba(255,193,7,0.6)');
+                    g.addColorStop(1, 'rgba(255,193,7,0)');
+                    ctx.fillStyle = g;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+
+                function drawFlower(f){
+                    ctx.save();
+                    ctx.translate(f.x, f.y);
+                    ctx.rotate(f.rot);
+                    ctx.globalAlpha = f.alpha;
+                    // simple sunflower-like petals
+                    const petalCount = 10;
+                    for(let i=0;i<petalCount;i++){
+                        const a = (i / petalCount) * Math.PI*2;
+                        ctx.beginPath();
+                        ctx.ellipse(Math.cos(a)*(f.size*0.25), Math.sin(a)*(f.size*0.25), f.size*0.35, f.size*0.6, a, 0, Math.PI*2);
+                        ctx.fillStyle = `rgba(255, 204, 0, ${0.9 - i*0.02})`;
+                        ctx.fill();
+                    }
+                    // center
+                    ctx.beginPath();
+                    ctx.fillStyle = 'rgba(66,33,0,0.95)';
+                    ctx.arc(0,0,f.size*0.25,0,Math.PI*2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+
+                function step(){
+                    if (reduced) return; // don't animate
+                    ctx.clearRect(0,0,w,h);
+                    // update & draw particles
+                    for(let p of particles){
+                        p.x += p.vx;
+                        p.y += p.vy;
+                        // wrap horizontally
+                        if (p.x < -10) p.x = w + 10;
+                        if (p.x > w + 10) p.x = -10;
+                        if (p.y < -10) p.y = h + 10;
+                        if (p.y > h + 10) p.y = -10;
+                        drawParticle(p);
+                    }
+                    // update & draw flowers
+                    for(let f of flowers){
+                        f.x += f.vx;
+                        f.y += f.vy;
+                        f.rot += 0.01 * (f.vx || 0.1);
+                        f.size += f.grow * 0.02;
+                        drawFlower(f);
+                        // respawn when out of view
+                        if (f.y > h + 60 || f.x < -80 || f.x > w + 80){
+                            f.x = rand(0,w);
+                            f.y = rand(-h, -10);
+                            f.size = rand(8,40);
+                            f.vy = rand(0.3,1.2);
+                            f.vx = rand(-0.6,0.6);
+                            f.alpha = rand(0.6,1);
+                        }
+                    }
+                    rafId = window.requestAnimationFrame(step);
+                }
+
+                let rafId = null;
+                function start(){
+                    if (reduced) return;
+                    if (!rafId) rafId = window.requestAnimationFrame(step);
+                }
+                function stop(){ if (rafId){ window.cancelAnimationFrame(rafId); rafId = null; } }
+
+                // initialize
+                resize();
+                makeParticles();
+                makeFlowers();
+                start();
+
+                // responsive
+                window.addEventListener('resize', ()=>{ resize(); makeParticles(); makeFlowers(); });
+
+                // pause when page hidden
+                document.addEventListener('visibilitychange', ()=>{ if (document.hidden) stop(); else start(); });
+
+                // if reduced-motion is enabled later
+                try {
+                    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+                    if (mq) mq.addEventListener ? mq.addEventListener('change', e=>{ if (e.matches) stop(); else start(); }) : mq.addListener(e=>{ if (e.matches) stop(); else start(); });
+                } catch(e){}
             })();
         </script>
 
